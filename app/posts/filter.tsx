@@ -43,7 +43,7 @@ export default function FilterPosts({
   selectedCategory,
 }: FilterPostsProps) {
   const router = useRouter();
-
+  console.log(authors);
   const handleFilterChange = (type: string, value: string) => {
     console.log(`Filter changed: ${type} -> ${value}`);
     const newParams = new URLSearchParams(window.location.search);
@@ -95,7 +95,7 @@ export default function FilterPosts({
         </SelectContent>
       </Select>
 
-      <Select
+      {/* <Select
         value={selectedAuthor || "all"}
         onValueChange={(value) => handleFilterChange("author", value)}
       >
@@ -104,13 +104,13 @@ export default function FilterPosts({
         </SelectTrigger>
         <SelectContent>
           <SelectItem value="all">All Authors</SelectItem>
-          {authors.map((author) => (
+          {authors.length !=0 && authors.map((author) => (
             <SelectItem key={author.id} value={author.id.toString()}>
               {author.name}
             </SelectItem>
           ))}
         </SelectContent>
-      </Select>
+      </Select> */}
 
       <Button variant="outline" onClick={handleResetFilters}>
         Reset Filters
